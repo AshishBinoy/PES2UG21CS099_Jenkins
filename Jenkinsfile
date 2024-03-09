@@ -4,19 +4,26 @@ pipeline{
         
       stage('Build') {
           steps {
+              script {
+                  
             build 'PES2UG21CS099-1'
             sh 'g++ hello.cpp -o output'
+          }
           }
       }
       stage('Test') {
           steps {
+              script {
               sh './output'
+              }
           }
       }
 
       stage('Deploy') {
           steps {
-              echo 'deploy' 
+              script{
+              echo 'deploy'
+              }
           }
       }
     }
